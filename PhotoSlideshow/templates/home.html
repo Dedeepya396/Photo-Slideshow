@@ -1,0 +1,48 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Drag and Drop Image Upload</title>
+      <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <a href="/logout" style="margin-top: 0%;margin-left: 0%;"><button class="button" style="font-family: myfont;"><span>Logout</span></button></a>
+    <div class="anim"></div>
+      <div id="drop-area">
+          <h1 style="font-family: myfont;">Drag & Drop Images Here</h1>
+          <form action="/upload" method="POST" enctype="multipart/form-data">
+          <input type="file" name="files[]" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+            <button class="button" type="submit">upload</button>
+        </form>
+          <label class="button" for="fileElem" style="font-family: myfont;">Select Images</label>
+      </div>
+      <div id="gallery" ></div>
+      <hr style="width: 70%; padding: 3px; background-color: rgb(4, 12, 103); border-radius: 29px; border: 2px rgb(4, 12, 103);">
+      <h1 style="font-size: 30px; text-align: center; color: white; font-family: myfont;">Selected</h1>
+      <div id = "selected"></div>
+      <p style="font-size: x-large; font-weight: bold;margin-right: 69%; color: white; font-family: myfont; margin-left: 0%;">Audio Select screen:<br></p>
+      <script src="{{url_for('static', filename='drag_and_drop.js')}}"></script>
+      <h1 style="color: white; font-family: myfont;">Audio Player</h1>
+    <div>
+      <select id="audioSelect">
+        <option value="{{url_for('static', filename='chipichipi.mp3')}}" >Chipi Chipi</option>
+        <option value="{{url_for('static', filename='tom_scream.mp3')}}" >Tom Scream</option>
+        <option value="{{url_for('static', filename='sample.mp3')}}" >Sample</option>
+      </select>
+      <button onclick="playAudio()" class="button" style = "font-family: myfont;"><span>Play</span></button>
+    </div>
+    <audio id="audioPlayer" controls loop >
+      Your browser does not support the audio element.
+    </audio>
+    <select id="resolution_select">
+      <option value="10px 10px">LOW</option>
+      <option value="20px 20px">MEDIUM</option>
+      <option value="80px 80px">HIGH</option>
+    </select>
+    <button onclick="setResolution()" class="button" style="color: white;font-family: myfont;width: 20%;"><span>SET RESOLUTION</span></button>
+    <a href="/preview"><button class="button" style="font-family: myfont; margin-right: 90%;" ><span>Preview Video</span></button></a>
+  </body>
+  </html>

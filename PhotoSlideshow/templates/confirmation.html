@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> CONFIRMATION PAGE </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='confirmation.css') }}">
+    </head>
+    <body>
+        <section>
+        <div align="center">
+          <div align="center" class="border">
+             <div class="header">
+                <h1 class="word">Index</h1>
+             </div></br></br></br>
+                <h1 class="bottom">
+                    {% if data %}
+                     Hi {{ data['username'] }}!!</br></br> Welcome to the index page...
+                     {% endif %}
+                </h1></br></br></br>
+                
+          </div>
+        </div>
+        </section>
+    <a href="/home" style="margin-top: 40%;margin-left: 35%;">GO TO MAIN PAGE!!</a>
+    </body>
+</html>

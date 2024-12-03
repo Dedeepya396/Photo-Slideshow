@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Preview</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+    <script src="{{url_for('static', filename='drag_and_drop.js')}}"></script>
+</head>
+<body>
+    <style>
+        #display_selected {
+    border: 2px solid rgb(4, 12, 103);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y:scroll;
+    gap: 10px;
+}
+
+#display_selected img {
+    padding: 10px;
+    width: 100px;
+    height: auto;
+}
+    </style>
+    <div class="display_selected">
+        <img src="{{url_for('static', filename='like1.png.png')}}" style="width: 100px; height: 100px;">
+        <img src="{{url_for('static', filename='gmail.jpg')}}" style="width: 100px; height: 100px;">
+        <img src="{{url_for('static', filename='insta_logo.png')}}" style="width: 100px; height: 100px;">
+        <img src="{{url_for('static', filename='dark_mode.jpg')}}" style="width: 100px; height: 100px;">
+        <img src="{{url_for('static', filename='github.png')}}" style="width: 100px; height: 100px;">
+    </div>
+    
+    <video width="50%" height="auto" controls class="video_player">
+        <source src="{{url_for('static', filename='Chipi chipi chapa chapa cat.mp4')}}" type="video/mp4">
+    </video>
+</body>
+</html>

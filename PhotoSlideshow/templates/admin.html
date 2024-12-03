@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='admin.css')}}">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <section>
+    <div><h1 class="heading" style="font-family: myfont;">Admin Dashboard</h1></div>
+    <div><table>
+        <tr>
+            <th style="font-family: myfont; font-size: 75%;">Username</th>
+            <th style="font-family: myfont; font-size: 75%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password</th>
+            <th style="font-family: myfont; font-size: 75%;">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        </tr>
+        {% for account in accounts %}
+        <tr>
+            <td>{{ account[1] }}</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ account[2] }}</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ account[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</section>
+</body>
+</html>
